@@ -1,198 +1,281 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Login en PHP</title>
+<html lang="en">
 
-    <!-- Importamos los estilos de Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Font Awesome: para los iconos -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <!-- Sweet Alert: alertas JavaScript presentables para el usuario (más bonitas que el alert) -->
-    <link rel="stylesheet" href="css/sweetalert.css">
-    <!-- Estilos personalizados: archivo personalizado 100% real no feik -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Estilos interno -->
-    <link rel="stylesheet" type="text/css" href="css/estilo-login.css">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Help center student</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="gh-pages/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="gh-pages/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="gh-pages/vendor/simple-line-icons/css/simple-line-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="gh-pages/device-mockups/device-mockups.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="gh-pages/css/new-age.min.css" rel="stylesheet">
+
+    <!-- estilos personalizads -->
+    <link rel="stylesheet" type="text/css" href="gh-pages/css/estilos.css">
 
   </head>
-  <body>
-<section class="main">
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
+  <body id="page-top">
 
-      <!-- Div espaciador -->
-      <div class="spacing-1"></div>
-      <!-- Div espaciador -->
-      <div class="spacing-1"></div>
-      <br><br><br><br>
-      <div class="container-gif" style="background-image: url(img/giphy.gif)">
-      </div>
-    </div>
-
-    <div class="col-md-6">
-    <!-- Div espaciador -->
-    <div class="spacing-1"></div>
-    <!-- Formulario Login -->
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-md-4 col-md-offset-4">
-          <!-- Estructura del formulario -->
-          <fieldset>
-
-            <legend class="center">Login</legend>
-
-            <!-- Caja de texto para usuario -->
-            <label class="sr-only" for="user">Usuario</label>
-            <div class="input-group">
-              <div class="input-group-addon"><i class="fa fa-user"></i></div>
-              <input type="text" class="form-control" id="user" placeholder="Ingresa tu usuario(correo)">
-            </div>
-
-            <!-- Div espaciador -->
-            <div class="spacing-2"></div>
-
-            <!-- Caja de texto para la clave-->
-            <label class="sr-only" for="clave">Contraseña</label>
-            <div class="input-group">
-              <div class="input-group-addon"><i class="fa fa-lock"></i></div>
-              <input type="password" autocomplete="off" class="form-control" id="clave" placeholder="Ingresa tu contraseña">
-            </div>
-
-            <!-- Animacion de load (solo sera visible cuando el cliente espere una respuesta del servidor )-->
-            <div class="row" id="load" hidden="hidden">
-              <div class="col-xs-4 col-xs-offset-4 col-md-2 col-md-offset-5">
-                <img src="img/load.gif" width="100%" alt="">
-              </div>
-              <div class="col-xs-12 center text-accent">
-                <span>Validando información...</span>
-              </div>
-            </div>
-            <!-- Fin load -->
-
-            <!-- boton #login para activar la funcion click y enviar el los datos mediante ajax -->
-            <div class="row">
-              <div class="col-xs-8 col-xs-offset-2">
-                <div class="spacing-2"></div>
-                <button type="button" class="btn btn-primary btn-block" name="button" id="login">Iniciar sesion</button>
-              </div>
-            </div>
-
-            <section class="text-accent center">
-              <div class="spacing-2"></div>
-              
-              <p>
-                No tienes una cuenta? Registrate!
-              </p>
-            </section>
-
-          </fieldset>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Help center student</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#download">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#features">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+          </ul>
         </div>
-    <!-- / Final Formulario login -->
-    <!-- ============================================================-->
-     <!-- Formulario registro -->
-        <div class="col-xs-12 col-md-4 col-md-offset-4">
+      </div>
+    </nav>
 
-          <form id="formulario_registro">
-            <!-- Estructura del formulario -->
-            <fieldset>
+    <header class="masthead">
+      <div class="container h-100">
+        <div class="row h-100">
+          <div class="col-lg-7 my-auto">
+            <div class="header-content mx-auto">
+             
+              <form class="form-inline" role="form" action="" method="post">
 
-              <legend class="center">Registro</legend>
+               <h1 class="title-registro">Registro</h1>
 
-              <!-- Caja de texto para usuario -->
-              <label class="sr-only" for="user" >Nombre</label>
-              <div class="input-group">
-                <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                <input type="text" class="form-control" name="name" placeholder="Ingresa tu nombre">
+              <div class="form-group">
+                <label for="name">Nombre</label>
+                <input class="form-control input-lg" type="text" name="nombre">
+
+                <label for="apellido">Apellido</label>
+                <input  class="form-control input-lg" type="text" name="apellido">
               </div>
 
-              <!-- Div espaciador -->
-              <div class="spacing-2"></div>
+              <br>
 
-              <label class="sr-only" for="user" >Apellido</label>
-              <div class="input-group">
-                <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                <input type="text" class="form-control" name="apellido" placeholder="Ingresa tu apellido">
+              <div class="form-group salto">
+                <label for="ciudad">Ciudad  </label>
+                <input class="form-control input-lg" type="text" name="ciudad">
+                
+                <label>Telefono</label>
+                <input class="form-control input-lg" type="text" name="telefono">
               </div>
 
-              <!-- Div espaciador -->
-              <div class="spacing-2"></div>
 
-              <!-- Caja de texto para usuario -->
-              <label class="sr-only" for="user">Email</label>
-              <div class="input-group">
-                <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                <input type="text" class="form-control" name="email" placeholder="Ingresa tu email">
-              </div>
-
-              <!-- Div espaciador -->
-              <div class="spacing-2"></div>
-
-              <!-- Caja de texto para la clave-->
-              <label class="sr-only" for="clave">Contraseña</label>
-              <div class="input-group">
-                <div class="input-group-addon"><i class="fa fa-lock"></i></div>
-                <input type="password" autocomplete="off" class="form-control" name="clave" placeholder="Ingresa tu clave">
-              </div>
-
-              <!-- Div espaciador -->
-              <div class="spacing-2"></div>
-
-              <!-- Caja de texto para la clave-->
-              <label class="sr-only" for="clave">Verificar contraseña</label>
-              <div class="input-group">
-                <div class="input-group-addon"><i class="fa fa-lock"></i></div>
-                <input type="password" autocomplete="off" class="form-control" name="clave2" placeholder="Verificar contraseña">
-              </div>
-
-              <!-- Div espaciador -->
-              <div class="spacing-2"></div>
-
-              <!-- Caja de texto para el cargo-->
-              <input type="hidden" autocomplete="off" class="form-control" name="cargo" value="2">
-
-              <!-- Animacion de load (solo sera visible cuando el cliente espere una respuesta del servidor )-->
-              <div class="row" id="load" hidden="hidden">
-                <div class="col-xs-4 col-xs-offset-4 col-md-2 col-md-offset-5">
-                  <img src="img/load.gif" width="100%" alt="">
+              <div class="form-group">
+                <label for="identificacion">Identificación</label>
+                <div class="col-lg-3 col-xs-4 col-sm-4">
+                <select class="form-control input-lg">
+                  <option value="0"></option>
+                  <option value="1">C.C</option>
+                  <option value="2">T.I</option>
+                  <option value="3">C.E</option>
+                </select>
                 </div>
-                <div class="col-xs-12 center text-accent">
-                  <span>Validando información...</span>
+                <div class="col-lg-5 col-xs-5 col-sm-8">
+                  <input class="form-control input-lg"  type="text" name="identificacion">
                 </div>
               </div>
-              <!-- Fin load -->
 
-              <!-- boton #login para activar la funcion click y enviar el los datos mediante ajax -->
+              <br>
+
+              <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger registrer">Registrarse!</a>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-5 my-auto">
+            <div class="device-container">
+              <div class="device-mockup iphone6_plus portrait white">
+                <div class="device">
+                  <div class="screen">
+                    <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                    <fieldset>
+                    <br>
+                    <legend>Login</legend>
+                    <label for="user">Correo</label>
+                    <input type="text" name="user" placeholder="correo">
+
+                    <label for="pass">Contraseña</label>
+                    <input type="text" name="clave">
+
+                    <button class="btn btn-acton">Ingresar</button>
+                    </fieldset>
+                  </div>
+                  <div class="button">
+                    <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="download bg-primary text-center" id="download">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 mx-auto">
+            <h2 class="section-heading">Discover what all the buzz is about!</h2>
+            <p>Our app is available on any mobile device! Download now to get started!</p>
+            <div class="badges">
+              <a class="badge-link" href="#"><img src="gh-pages/img/google-play-badge.svg" alt=""></a>
+              <a class="badge-link" href="#"><img src="gh-pages/img/app-store-badge.svg" alt=""></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <div class="container">
+        <div class="section-heading text-center">
+          <h2>Unlimited Features, Unlimited Fun</h2>
+          <p class="text-muted">Check out what you can do with this app theme!</p>
+          <hr>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 my-auto">
+            <div class="device-container">
+              <div class="device-mockup iphone6_plus portrait white">
+                <div class="device">
+                  <div class="screen">
+                    <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                    <img src="gh-pages/img/demo-screen-1.jpg" class="img-fluid" alt="">
+                  </div>
+                  <div class="button">
+                    <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 my-auto">
+            <div class="container-fluid">
               <div class="row">
-                <div class="col-xs-8 col-xs-offset-2">
-                  <div class="spacing-2"></div>
-                  <button type="button" class="btn btn-primary btn-block" name="button" id="registro">Registrate</button>
+                <div class="col-lg-6">
+                  <div class="feature-item">
+                    <i class="icon-screen-smartphone text-primary"></i>
+                    <h3>Device Mockups</h3>
+                    <p class="text-muted">Ready to use HTML/CSS device mockups, no Photoshop required!</p>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="feature-item">
+                    <i class="icon-camera text-primary"></i>
+                    <h3>Flexible Use</h3>
+                    <p class="text-muted">Put an image, video, animation, or anything else in the screen!</p>
+                  </div>
                 </div>
               </div>
-
-            </fieldset>
-          </form>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="feature-item">
+                    <i class="icon-present text-primary"></i>
+                    <h3>Free to Use</h3>
+                    <p class="text-muted">As always, this theme is free to download and use for any purpose!</p>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="feature-item">
+                    <i class="icon-lock-open text-primary"></i>
+                    <h3>Open Source</h3>
+                    <p class="text-muted">Since this theme is MIT licensed, you can use it commercially!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
-  </div>
+    <section class="cta">
+      <div class="cta-content">
+        <div class="container">
+          <h2>Stop waiting.<br>Start building.</h2>
+          <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger">Let's Get Started!</a>
+        </div>
+      </div>
+      <div class="overlay"></div>
+    </section>
 
-  </section>
+    <section class="contact bg-primary" id="contact">
+      <div class="container">
+        <h2>We
+          <i class="fa fa-heart"></i>
+          new friends!</h2>
+        <ul class="list-inline list-social">
+          <li class="list-inline-item social-twitter">
+            <a href="#">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li class="list-inline-item social-facebook">
+            <a href="#">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li class="list-inline-item social-google-plus">
+            <a href="#">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-  <!-- ==================================================== -->
-  <section class="content">
-    
-  </section>
-    <!-- Jquery -->
-    <script src="js/jquery.js"></script>
-    <!-- Bootstrap js -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- SweetAlert js -->
-    <script src="js/sweetalert.min.js"></script>
-    <!-- Js personalizado -->
-    <script src="js/operaciones.js"></script>
+    <footer>
+      <div class="container">
+        <p>&copy; Your Website 2018. All Rights Reserved.</p>
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <a href="#">Privacy</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">Terms</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">FAQ</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="gh-pages/vendor/jquery/jquery.min.js"></script>
+    <script src="gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="gh-pages/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="gh-pages/js/new-age.min.js"></script>
+
   </body>
+
 </html>
